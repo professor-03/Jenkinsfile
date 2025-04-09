@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                // Command to compile the Java application
+                sh 'javac Calculator.java'
+            }
+        }
+        stage('Test') {
+            steps {
+                // Command to run unit tests
+                sh 'java -cp . CalculatorTest'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                // Deployment actions (e.g., copy files, start servers)
+                echo 'Deploying the app...'
+            }
+        }
+    }
+}
